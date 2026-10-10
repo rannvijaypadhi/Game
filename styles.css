@@ -1,0 +1,265 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: #0f0f0f;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* PHONE FRAME */
+.phone {
+  width: 390px;
+  height: 800px;
+  background: #111;
+  border-radius: 40px;
+  border: 6px solid #000;
+  overflow: hidden;
+  position: relative; /* IMPORTANT for overlays */
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+/* STATUS BAR */
+.status-bar {
+  height: 50px;
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 18px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.status-icons {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+}
+
+/* MAIN APP AREA */
+.app-container {
+  padding: 20px;
+  height: calc(100% - 120px);
+  overflow-y: auto;
+}
+
+/* APP GRID */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+/* APP ICON (investment card) */
+.investment-card {
+  background: #1a1a1a;
+  border-radius: 22px;
+  padding: 16px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.15s;
+}
+
+.investment-card:hover {
+  transform: scale(1.03);
+}
+
+.investment-card h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.investment-card p {
+  font-size: 13px;
+  color: #bbb;
+}
+
+/* INPUT + BUTTONS */
+.amount-input {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  background: #222;
+  color: #fff;
+}
+
+.btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.invest-btn {
+  background: #2ecc71;
+  color: #000;
+}
+
+.invest-btn:hover {
+  background: #27ae60;
+}
+
+.sell-btn {
+  background: #e74c3c;
+  color: #000;
+}
+
+.sell-btn:hover {
+  background: #c0392b;
+}
+
+/* EVENT LOG */
+.event-log-container {
+  margin-top: 20px;
+  background: #1a1a1a;
+  padding: 12px;
+  border-radius: 18px;
+  height: 140px;
+  overflow-y: auto;
+  color: #fff;
+  font-size: 13px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+}
+
+/* BOTTOM DOCK */
+.bottom-dock {
+  height: 70px;
+  background: #000;
+  border-top: 2px solid #222;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dock-icon {
+  width: 55px;
+  height: 55px;
+  background: #1a1a1a;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* TIMER DISPLAY */
+#turn {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* CASH + PORTFOLIO */
+#cash, #portfolioValue {
+  color: #fff;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* INDIVIDUAL STOCKS BUTTON */
+.stocks-btn {
+  width: 100%;
+  padding: 14px;
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: 0.15s;
+}
+
+.stocks-btn:hover {
+  transform: scale(1.03);
+}
+
+/* STOCK PANEL OVERLAY */
+.stocks-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(6px);
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 999;
+}
+
+.hidden {
+  display: none;
+}
+
+/* STOCK PANEL HEADER */
+.stocks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.close-btn {
+  background: #e74c3c;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* SEARCH + FILTER */
+.stock-search,
+.stock-filter {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border-radius: 12px;
+  border: none;
+  background: #222;
+  color: #fff;
+}
+
+/* STOCK LIST */
+.stocks-list {
+  margin-top: 20px;
+}
+
+/* STOCK ITEM */
+.stock-item {
+  background: #1a1a1a;
+  padding: 14px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.15s;
+  border: 1px solid #222;
+}
+
+.stock-item:hover {
+  transform: scale(1.03);
+}
+
+.stock-item h3 {
+  margin-bottom: 6px;
+}
+
+.stock-item small {
+  color: #bbb;
+}

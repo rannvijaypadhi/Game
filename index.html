@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Investment Simulator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>Investment Simulator</h1>
+      <p class="subtitle">Manage your portfolio and elevate your.</p>
+    </header>
+
+    <section class="status-bar">
+      <div class="status-item">
+        <span class="label">Turn:</span>
+        <span id="turn">1</span>
+      </div>
+      <div class="status-item">
+        <span class="label">Cash:</span>
+        <span id="cash">$10,000</span>
+      </div>
+      <div class="status-item">
+        <span class="label">Portfolio Value:</span>
+        <span id="portfolioValue">$0</span>
+      </div>
+      <div class="status-bar">
+  <span id="phoneTime">12:00</span>
+  <div class="status-icons">
+    <span>📶</span>
+    <span>🔋</span>
+  </div>
+</div>
+<div id="stocksPanel" class="stocks-panel hidden">
+
+  <div class="stocks-header">
+    <h2>Individual Stocks</h2>
+    <button id="closeStocksBtn" class="close-btn">✕</button>
+  </div>
+
+  <input type="text" id="stockSearch" class="stock-search" placeholder="Search stocks...">
+
+  <select id="stockFilter" class="stock-filter">
+    <option value="all">All Sectors</option>
+    <option value="Technology">Technology</option>
+    <option value="Automotive">Automotive</option>
+    <option value="Entertainment">Entertainment</option>
+    <option value="Retail">Retail</option>
+    <option value="Energy">Energy</option>
+    <option value="Airlines">Airlines</option>
+    <option value="Aerospace">Aerospace</option>
+    <option value="Finance">Finance</option>
+    <option value="Index">Index</option>
+  </select>
+
+  <div id="stocksList" class="stocks-list"></div>
+
+</div>
+
+    </section>
+
+    <main class="main">
+      <section class="investments-panel">
+        <h2>Investments</h2>
+        <div class="investment-list">
+#SAVINGS ACCOUNT
+          <div class="investment-card" data-key="savings">
+            <h3>Savings Account</h3>
+            <p class="risk low">Risk: Low</p>
+            <p>Base Return: 1% / turn</p>
+            <p>Volatility: 0%</p>
+            <p class="special">Always grows</p>
+            <div class="allocation">
+              <span>Allocated: </span>
+              <span id="alloc-savings">$0</span>
+            </div>
+            <div class="controls">
+              <input type="number" min="0" placeholder="Amount" class="amount-input">
+              <button class="btn invest-btn">Invest</button>
+              <button class="btn sell-btn">Sell</button>
+            </div>
+          </div>
+
+#INDEX FUND
+          <div class="investment-card" data-key="indexFund">
+            <h3>Index Fund</h3>
+            <p class="risk medium">Risk: Medium</p>
+            <p>Base Return: 3% / turn</p>
+            <p>Volatility: 2%</p>
+            <p class="special">Stable in the long term</p>
+            <div class="allocation">
+              <span>Allocated: </span>
+              <span id="alloc-indexFund">$0</span>
+            </div>
+            <div class="controls">
+              <input type="number" min="0" placeholder="Amount" class="amount-input">
+              <button class="btn invest-btn">Invest</button>
+              <button class="btn sell-btn">Sell</button>
+            </div>
+          </div>
+
+#INDIVIDUAL STOCKS
+          <div class="investment-card" data-key="individualStocks">
+            <h3>Individual Stocks</h3>
+            <p class="risk high">Risk: High</p>
+            <p>Base Return: 7% / turn</p>
+            <p>Volatility: 100%</p>
+            <p class="special">Game events may cause rises or crashes</p>
+            <div class="allocation">
+              <span>Allocated: </span>
+              <span id="alloc-individualStocks">$0</span>
+            </div>
+            <div class="controls">
+              <input type="number" min="0" placeholder="Amount" class="amount-input">
+              <button class="btn invest-btn">Invest</button>
+              <button class="btn sell-btn">Sell</button>
+            </div>
+          </div>
+
+# REAL ESTATE
+          <div class="investment-card" data-key="realEstate">
+            <h3>Real Estate</h3>
+            <p class="risk medium">Risk: Medium</p>
+            <p>Base Return: 4% / turn</p>
+            <p>Volatility: 5%</p>
+            <p class="special">Can't sell for 5 turns</p>
+            <div class="allocation">
+              <span>Allocated: </span>
+              <span id="alloc-realEstate">$0</span>
+            </div>
+            <div class="controls">
+              <input type="number" min="0" placeholder="Amount" class="amount-input">
+              <button class="btn invest-btn">Invest</button>
+              <button class="btn sell-btn">Sell</button>
+            </div>
+          </div>
+#crypto
+          <div class="investment-card" data-key="crypto">
+            <h3>Crypto</h3>
+            <p class="risk very-high">Risk: Very High</p>
+            <p>Base Return: 10% / turn</p>
+            <p>Volatility: 25%</p>
+            <p class="special">Can crash to -50% randomly</p>
+            <div class="allocation">
+              <span>Allocated: </span>
+              <span id="alloc-crypto">$0</span>
+            </div>
+            <div class="controls">
+              <input type="number" min="0" placeholder="Amount" class="amount-input">
+              <button class="btn invest-btn">Invest</button>
+              <button class="btn sell-btn">Sell</button>
+            </div>
+          </div>
+
+          <div class="investment-card" data-key="jewelry">
+            <h3>Jewelry</h3>
+            <p class="risk very-high">Risk: Very High</p>
+            <p>Base Return: 15% / turn</p>
+            <p>Volatility: 30%</p>
+            <p class="special">Game events may cause rises or crashes. An investment boom in gold can increase jewelry value, while a stock market crash can decrease it.</p>
+            <div class="allocation">
+              <span>Allocated: </span>
+              <span id="alloc-jewelry">$0</span>
+            </div>
+            <div class="controls">
+              <input type="number" min="0" placeholder="Amount" class="amount-input">
+              <button class="btn invest-btn">Invest</button>
+              <button class="btn sell-btn">Sell</button>
+            </div>
+          </div>
+
+          <div class="investment-card" data-key="gold">
+            <h3>Gold</h3>
+            <p class="risk very-high">Risk: Very High</p>
+            <p>Base Return: 4% / turn</p>
+            <p>Volatility: 3%</p>
+            <p class="special">Hedge against inflation, typically scales opposite of the Index Fund</p>
+            <div class="allocation">
+              <span>Allocated: </span>
+              <span id="alloc-gold">$0</span>
+            </div>
+            <div class="controls">
+              <input type="number" min="0" placeholder="Amount" class="amount-input">
+              <button class="btn invest-btn">Invest</button>
+              <button class="btn sell-btn">Sell</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="side-panel">
+        <h2>Events & Log</h2>
+        <div id="eventLog" class="event-log">
+          <p>No events yet. Make an investment to start.</p>
+        </div>
+
+        <button id="nextTurnBtn" class="btn next-turn-btn">
+          Next Turn
+        </button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Investment game prototype · BPA project</p>
+    </footer>
+  </div>
+
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
